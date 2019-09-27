@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+		<!-- 부가적인 테마 -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+		
+		<link rel="stylesheet" href="tactics.css">
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.1/css/bootstrap-slider.min.css">
+
+		<!-- jquery -->
+		<script  src="https://code.jquery.com/jquery-3.3.1.min.js"  
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="  
+		crossorigin="anonymous"></script>
+  
+		<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		
+		<!-- bootstrap-slider -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.1/bootstrap-slider.min.js"></script>
+		
+		<!-- draggable -->
+		<script src="plain-draggable.min.js"></script>
+
+		<!-- html2canvas -->
+		<script src="html2canvas.min.js"></script>
+
+		<!-- html2canvas -->
+		<script src="js/canvas2image.js"></script>
+	</head>
+
+	<body>
+
+		<div class="container" style="border: 1px solid black;">
+			<div id="main" class="row" style="border: 1px;">
+                <!-- 포메이션 -->
+				<div class="col-lg-4" style="width: 340px; height: 480px; padding-left: 0; padding-right: 0; margin-right: 20px;">
+					<div id="field" style="background-image : url('img/football_field.jpg'); background-size: 100% 100%; width: 100%; height: 100%; float:left;">
+						<div id="player1">
+							<img id="uniform_img" src="img/uniform3.png"/>
+							<br/>
+							<select id="sel">
+							</select>
+						</div>
+						<div id="player2">
+							<img id="uniform_img" src="img/uniform3.png"/>
+							<br/>
+							<select id="sel">
+							</select>
+						</div>
+						<div id="player3">
+							<img id="uniform_img" src="img/uniform3.png"/>
+							<br/>
+							<select id="sel">
+							</select>
+						</div>
+						<div id="player4">
+							<img id="uniform_img" src="img/uniform3.png"/>
+							<br/>
+							<select id="sel">
+							</select>
+						</div>
+						<div id="player5">
+							<img id="uniform_img" src="img/uniform3.png"/>
+							<br/>
+							<select id="sel">
+							</select>
+						</div>
+						<div id="player6">
+							<img id="uniform_img" src="img/uniform3.png"/>
+							<br/>
+							<select id="sel">
+							</select>
+						</div>
+						<div id="player7">
+							<img id="uniform_img" src="img/uniform3.png"/>						
+							<br/>
+							<select id="sel">
+							</select>
+						</div>
+						<div id="player8">
+							<img id="uniform_img" src="img/uniform3.png"/>						
+							<br/>
+							<select id="sel">
+							</select>
+						</div>
+						<div id="player9">
+							<img id="uniform_img" src="img/uniform3.png"/>						
+							<br/>
+							<select id="sel">
+							</select>
+						</div>
+						<div id="player10">
+							<img id="uniform_img" src="img/uniform3.png"/>						
+							<br/>
+							<select id="sel">
+							</select>
+						</div>
+						<div id="player11">
+							<img id="uniform_img" src="img/uniform3.png"/>						
+							<br/>
+							<select id="sel">
+							</select>
+						</div>
+					</div>
+				</div>
+
+                <!-- 세부 전술 -->
+				<div class="col-lg-8" style="border: 1px solid black;">
+					<div class="row">
+						<div class="col-lg-4">
+							<div id="attack_section">
+								<h5>볼 점유 시</h5>
+								<div>
+									<h6>공격 폭</h6>
+									<input id="attackWidthSlider" data-slider-id='attackWidthSlider' type="range" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+									<br>
+									<h6>접근 플레이</h6>
+									<button type="button" class="btn btn-default btn-block btn-xs" data-toggle="button" aria-pressed="false" autocomplete="off">
+										공간을 향해 패스하라
+									</button>
+									<br>
+									<!-- 경기장 빌드업 방향 -->
+
+									<h6>패스 방식</h6>
+									<label id="pass"></label>
+									<input id="passSlider" data-slider-id='passSlider' type="range" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+									<br>
+
+									<h6>템포</h6>
+									<label id="tempo"></label>
+									<input id="tempoSlider" data-slider-id='tempoSlider' type="range" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+									<br>
+
+									<h6>시간 보내기</h6>
+									<label id="time"></label>
+									<input id="timeSlider" data-slider-id='timeSlider' type="range" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+									<br>
+
+									<h6>상대팀 진영</h6>
+									<div class="dropdown">
+										<button class="btn btn-default btn-block btn-xs dropdown-toggle" id="cross_text" value="title" type="button" data-toggle="dropdown" aria-expanded="true">
+											혼합 크로스
+											<span class="caret"></span>
+										</button>
+										<ul id="cross" class="dropdown-menu" role="menu" aria-labelledby="searchType">
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#" value="a">낮은 크로스</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#" value="b">혼합 크로스</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#" value="c">높은 크로스</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#" value="d">채찍같은 크로스</a>
+											</li>
+										</ul>
+									</div>
+
+									<!-- 경기장 -->
+
+									<br>
+									<button type="button" class="btn btn-default btn-block btn-xs" data-toggle="button" aria-pressed="false" autocomplete="off">
+										세트 플레이를 노려라
+									</button>
+
+									<br>
+									<h6>드리블</h6>
+									<div class="btn-group btn-block" data-toggle="buttons">
+										<label class="btn btn-default btn-block btn-xs">
+											<input type="radio" name="options" id="option1" autocomplete="off">드리블 적게
+										</label>
+										<br>
+										<label class="btn btn-default btn-block btn-xs active">
+											<input type="radio" name="options" id="option2" autocomplete="off" checked>보통
+										</label>
+										<br>
+										<label class="btn btn-default btn-block btn-xs">
+											<input type="radio" name="options" id="option3" autocomplete="off">수비진을 뚫어라
+										</label>
+									</div>
+
+									<br>
+									<h6>창조성</h6>
+									<div class="btn-group btn-block" data-toggle="buttons">
+										<label class="btn btn-default btn-block btn-xs">
+											<input type="radio" name="options" id="option1" autocomplete="off">자유롭게 플레이하라
+										</label>
+										<br>
+										<label class="btn btn-default btn-block btn-xs active">
+											<input type="radio" name="options" id="option2" autocomplete="off" checked>보통
+										</label>
+										<br>
+										<label class="btn btn-default btn-block btn-xs">
+											<input type="radio" name="options" id="option3" autocomplete="off">전술대로 플레이하라
+										</label>
+									</div>
+								</div>
+
+								<!--<div class="progress">
+                                  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                    <span class="sr-only">80% Complete (danger)</span>
+                                  </div>
+                                </div>-->
+
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div id="transition_section">
+								<h5>전환 시</h5>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div id="defense_section">
+								<h5>볼이 없을 시</h5>
+								<div>
+									<label for="defenseWidth">수비 넓이</label>
+									<br>
+									<input id="defenseWidth" data-slider-id='defenseWidth' type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="1"/>
+								</div>
+
+								<input id="pressingIntensity" data-slider-id='pressingIntensity' type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="border: 1px; text-align: center;">
+				<a id="target" style="display: none"></a> <!-- 다운로드를 위한 앵커 -->
+				<input type="button" id="btnSave" value="Save PNG"/>
+			</div>
+		</div>
+		<div id="img-out"></div>
+		<script>
+            const margin = 20;
+            const verticalMargin = 60;
+            const fieldWidth = $("#field").width() - (margin * 2); //default : 340px
+            const fieldHeight = $("#field").height() - (verticalMargin * 2); //default : 480px
+            const widthStep = (fieldWidth / 20);
+            const heightStep = (fieldHeight / 20);
+            const uniformWidth = 47.7656;
+            const uniformheight = 58;
+
+			$(function() {
+
+				$("#btnSave").click(function() {
+					html2canvas($("#main")[0], {
+                        allowTaint : true,
+                        useCORS : true,
+                        //foreignObjectRendering : true,
+                        //removeContainer : true
+					}).then(
+						function(canvas){
+                            Canvas2Image.saveAsPNG(canvas);
+                            /*if (navigator.msSaveBlob) {
+                                var blob = canvas.msToBlob();
+                                return navigator.msSaveBlob(blob, '파일명.jpg');
+                            } else {
+                                Canvas2Image
+                                var el = document.getElementById("target");
+                                el.href = canvas.toDataURL("image/jpeg");
+                                el.setAttribute('crossorigin');
+                                el.download = '파일명.jpg';
+                                console.log(el);
+                                el.click();
+                            }*/
+
+
+							/*
+                            let el = document.getElementById("target");
+                            el.href = canvas.toDataURL("image/jpeg");
+                            el.download = '파일명.jpg';
+                            el.click();*/
+
+						    //Canvas2Image.saveAsPNG(canvas);
+                            //location.href = canvas.toDataURL('image/png').replace(/^data:image\/png/, 'data:application/octet-stream');
+						});					
+				});
+			});
+
+            $('#cross li > a').on('click', function() {
+                // 버튼에 선택된 항목 텍스트 넣기
+                let htmlString = $(this).text() + ' <span class="caret"></span>';
+                $('#cross_text').html(htmlString);
+            });
+
+            $('#attackWidthSlider').slider({
+                formatter: function(value) {
+                    return 'Current value: ' + value;
+                }
+            });
+
+            $('#defenseWidthSlider').slider({
+                formatter: function(value) {
+                    return 'Current value: ' + value;
+                }
+            });
+
+            $('#passSlider').slider({
+                formatter: function(value) {
+                    return 'Current value: ' + value;
+                }
+            });
+
+            $('#tempoSlider').slider({
+                formatter: function(value) {
+                    return 'Current value: ' + value;
+                }
+            });
+
+            $('#timeSlider').slider({
+                formatter: function(value) {
+                    return 'Current value: ' + value;
+                }
+            });
+			
+			$('#pressingIntensity').slider({
+				formatter: function(value) {
+					return 'Current value: ' + value;
+				}
+			});
+			
+			window.addEventListener('load', function() {			
+			
+			  const player_cnt = 11;
+			  let players = new Array();
+			  
+			  for(let i = 1; i <= player_cnt; i++){
+				players.push(
+					new PlainDraggable(document.getElementById('player'+i), {
+						handle: document.querySelector('#player'+i+' #uniform_img'),
+						snap: {step: 10}
+					})
+				);
+			  }
+
+			  //draggable.containment = {left: 50, top: 0, width: '100%', height: '100%'};
+
+			  //기본 4-4-2 전형
+			  let formation442 = [
+				{//1
+					x : getHorizonValue(5),
+					y : getVerticalValue(3)
+				},
+				{//2
+					x : getHorizonValue(11),
+					y : getVerticalValue(3)
+				},
+				{//3
+					x : getHorizonValue(0),
+					y : getVerticalValue(11)
+				},
+				{//4
+					x : getHorizonValue(5),
+					y : getVerticalValue(11)
+				},
+				{//5
+					x : getHorizonValue(11),
+					y : getVerticalValue(11)
+				},
+				{//6
+					x : getHorizonValue(16),
+					y : getVerticalValue(11)
+				},
+				{//7
+					x : getHorizonValue(0),
+					y : getVerticalValue(18)
+				},
+				{//8
+					x : getHorizonValue(5),
+					y : getVerticalValue(18)
+				},
+				{//9
+					x : getHorizonValue(11),
+					y : getVerticalValue(18)
+				},
+				{//10
+					x : getHorizonValue(16),
+					y : getVerticalValue(18)
+				},
+				{//11
+					x : getHorizonValue(8),
+					y : getVerticalValue(22)
+				}
+			  ]
+
+			  for(let i in players){
+                players[i].left = 0; //기본 x좌표를 경기장 맨 왼쪽으로
+                players[i].top = 0;
+				players[i].left += formation442[i].x;
+				players[i].top += formation442[i].y;
+				players[i].position();
+			  }
+
+			});
+
+			function getHorizonValue(x){
+               	return (widthStep * x) + margin + 12;
+			}
+
+			function getVerticalValue(y){
+                return (heightStep * y) + verticalMargin - uniformheight;
+			}
+
+			function setSelectBoxPosition(){
+			    let ST = ['P', 'AF', 'TM', ''];
+			    let AMF = [];
+			    let CMF = [];
+			    let DMF = [];
+			    let SMF = [];
+			    let CB = [];
+			    let SB = [];
+			    let GK = [];
+            }
+		</script>
+	</body>
+</html>
