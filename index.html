@@ -8,9 +8,9 @@
 
 		<!-- 부가적인 테마 -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-		
+
 		<link rel="stylesheet" href="tactics.css">
-		
+
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.1/css/bootstrap-slider.min.css">
 
 		<!-- jquery -->
@@ -39,7 +39,7 @@
 		<div class="container" style="border: 1px solid black;">
 			<div id="main" class="row" style="border: 1px;">
                 <!-- 포메이션 -->
-				<div class="col-lg-4" style="width: 340px; height: 480px; padding-left: 0; padding-right: 0; margin-right: 20px;">
+				<!--<div class="col-lg-4" style="width: 340px; height: 480px; padding-left: 0; padding-right: 0; margin-right: 20px;">
 					<div id="field" style="background-image : url('img/football_field.jpg'); background-size: 100% 100%; width: 100%; height: 100%; float:left;">
 						<div id="player1">
 							<img id="uniform_img" src="img/uniform3.png"/>
@@ -108,7 +108,7 @@
 							</select>
 						</div>
 					</div>
-				</div>
+				</div>-->
 
                 <!-- 세부 전술 -->
 				<div class="col-lg-8" style="border: 1px solid black;">
@@ -121,9 +121,16 @@
 									<input id="attackWidthSlider" data-slider-id='attackWidthSlider' type="range" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
 									<br>
 									<h6>접근 플레이</h6>
-									<button type="button" class="btn btn-default btn-block btn-xs" data-toggle="button" aria-pressed="false" autocomplete="off">
-										공간을 향해 패스하라
-									</button>
+									<div class="btn-group btn-block" data-toggle="buttons">
+										<label class="btn btn-default btn-block btn-xs">
+											<input type="radio" name="options" id="option1" autocomplete="off">공간 패스 O
+										</label>
+										<br>
+										<label class="btn btn-default btn-block btn-xs active">
+											<input type="radio" name="options" id="option2" autocomplete="off" checked>공간 패스 X
+										</label>
+									</div>
+
 									<br>
 									<!-- 경기장 빌드업 방향 -->
 
@@ -215,6 +222,30 @@
 						<div class="col-lg-4">
 							<div id="transition_section">
 								<h5>전환 시</h5>
+								<table id="example" style="border: 1px solid; border-collapse: collapse; width: 100%; text-align: center; font-size: 10px;">
+									<tbody>
+										<tr>
+											<td colspan="4" style="border: 1px solid;">&nbsp;</td>
+										</tr>
+										<tr>
+											<td id="overlap_left" style="border: 1px solid;">좌측<br/>오버래핑</td>
+											<td id="underlap_left" style="border: 1px solid;">좌측<br/>언더래핑</td>
+											<td id="underlap_right" style="border: 1px solid;">우측<br/>언더래핑</td>
+											<td id="overlap_right"style="border: 1px solid;">우측<br/>오버래핑</td>
+										</tr>
+										<tr style="height: 42px;">
+											<td id="left_attack" style="border: 1px solid;">좌측<br/>측면 공격</td>
+											<td id="center_attack" colspan="2" style="border: 1px solid;">중앙 공격</td>
+											<td id="right_attack" style="border: 1px solid;">우측<br/>측면 공격</td>
+										</tr>
+										<tr>
+											<td id="def_buildup" colspan="4" style="border: 1px solid;">수비 지역에서 빌드업</td>
+										</tr>
+										<tr>
+											<td colspan="4">&nbsp;</td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
 						</div>
 						<div class="col-lg-4">
@@ -232,10 +263,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="row" style="border: 1px; text-align: center;">
-				<a id="target" style="display: none"></a> <!-- 다운로드를 위한 앵커 -->
+			<!--<div class="row" style="border: 1px; text-align: center;">
+				<a id="target" style="display: none"></a> &lt;!&ndash; 다운로드를 위한 앵커 &ndash;&gt;
 				<input type="button" id="btnSave" value="Save PNG"/>
-			</div>
+			</div>-->
 		</div>
 		<div id="img-out"></div>
 		<script>
@@ -249,6 +280,9 @@
             const uniformheight = 58;
 
 			$(function() {
+
+			    readyAttackOrderButton();
+
 
 				$("#btnSave").click(function() {
 					html2canvas($("#main")[0], {
@@ -400,6 +434,106 @@
 			  }
 
 			});
+
+            /**
+             *  공격방향 버튼 세팅
+             */
+			function readyAttackOrderButton(){
+
+                $("#overlap_left").click(function(){
+                    if( $(this).hasClass("bg-success") ){
+                        $(this).attr("class", "");
+                        $("#underlap_left").attr("class", "");
+					}else{
+                        $(this).attr("class", "bg-success");
+                        $("#underlap_left").attr("class", "bg-danger");
+					}
+                });
+
+                $("#overlap_right").click(function(){
+                    if( $(this).hasClass("bg-success") ){
+                        $(this).attr("class", "");
+                        $("#underlap_right").attr("class", "");
+                    }else{
+                        $(this).attr("class", "bg-success");
+                        $("#underlap_right").attr("class", "bg-danger");
+                    }
+                });
+
+                $("#underlap_left").click(function(){
+                    if( $(this).hasClass("bg-success") ){
+                        $(this).attr("class", "");
+                        $("#overlap_left").attr("class", "");
+                    }else{
+                        $(this).attr("class", "bg-success");
+                        $("#overlap_left").attr("class", "bg-danger");
+                    }
+                });
+
+                $("#underlap_right").click(function(){
+                    if( $(this).hasClass("bg-success") ){
+                        $(this).attr("class", "");
+                        $("#overlap_right").attr("class", "");
+                    }else{
+                        $(this).attr("class", "bg-success");
+                        $("#overlap_right").attr("class", "bg-danger");
+                    }
+                });
+
+                $("#left_attack").click(function(){
+                    if( $(this).hasClass("bg-success") ){
+                        $(this).attr("class", "");
+                        $("#center_attack").attr("class", "");
+                        if( $("#right_attack").hasClass("bg-success") ){
+                            $("#center_attack").attr("class", "bg-danger");
+						}
+                    }else{
+                        $(this).attr("class", "bg-success");
+                        $("#center_attack").attr("class", "bg-danger");
+
+                        if( $("#right_attack").hasClass("bg-danger") ){
+                            $("#right_attack").attr("class", "");
+						}
+                    }
+                });
+
+                $("#right_attack").click(function(){
+                    if( $(this).hasClass("bg-success") ){
+                        $(this).attr("class", "");
+                        $("#center_attack").attr("class", "");
+                        if( $("#left_attack").hasClass("bg-success") ){
+                            $("#center_attack").attr("class", "bg-danger");
+                        }
+                    }else{
+                        $(this).attr("class", "bg-success");
+                        $("#center_attack").attr("class", "bg-danger");
+
+                        if( $("#left_attack").hasClass("bg-danger") ){
+                            $("#left_attack").attr("class", "");
+                        }
+                    }
+                });
+
+                $("#center_attack").click(function(){
+                    if( $(this).hasClass("bg-success") ){
+                        $(this).attr("class", "");
+                        $("#left_attack").attr("class", "");
+                        $("#right_attack").attr("class", "");
+                    }else{
+                        $(this).attr("class", "bg-success");
+                        $("#left_attack").attr("class", "bg-danger");
+                        $("#right_attack").attr("class", "bg-danger");
+                    }
+                });
+
+                $("#def_buildup").click(function(){
+                    if( $(this).hasClass("bg-success") ){
+                        $(this).attr("class", "");
+                    }else{
+                        $(this).attr("class", "bg-success");
+                    }
+                });
+			}
 
 			function getHorizonValue(x){
                	return (widthStep * x) + margin + 12;
