@@ -13,15 +13,12 @@
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.1/css/bootstrap-slider.min.css">
 
-
-
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.1/css/bootstrap-slider.min.css">
-
 	</head>
 
 	<body>
 		<div class="container" style="border: 1px solid black; visibility:hidden;">
 			<div id="main" class="row" style="border: 1px;">
+      	<!-- 포메이션 -->
 				<div class="col-lg-4" style="width: 340px; height: 480px; padding-left: 0; padding-right: 0; margin-right: 20px;">
 					<div id="field" style="background-image : url('img/football_field.jpg'); background-size: 100% 100%; width: 100%; height: 100%; float:left;">
 						<div id="player1">
@@ -187,6 +184,31 @@
 						<div class="col-lg-4">
 							<div id="transition_section">
 								<h5>2. 전환 시</h5>
+								<table id="example" style="border: 1px solid; border-collapse: collapse; width: 100%; text-align: center; font-size: 10px;">
+									<tbody>
+										<tr>
+											<td colspan="4" style="border: 1px solid;">&nbsp;</td>
+										</tr>
+										<tr>
+											<td id="overlap_left" style="border: 1px solid;">좌측<br/>오버래핑</td>
+											<td id="underlap_left" style="border: 1px solid;">좌측<br/>언더래핑</td>
+											<td id="underlap_right" style="border: 1px solid;">우측<br/>언더래핑</td>
+											<td id="overlap_right"style="border: 1px solid;">우측<br/>오버래핑</td>
+										</tr>
+										<tr style="height: 42px;">
+											<td id="left_attack" style="border: 1px solid;">좌측<br/>측면 공격</td>
+											<td id="center_attack" colspan="2" style="border: 1px solid;">중앙 공격</td>
+											<td id="right_attack" style="border: 1px solid;">우측<br/>측면 공격</td>
+										</tr>
+										<tr>
+											<td id="def_buildup" colspan="4" style="border: 1px solid;">수비 지역에서 빌드업</td>
+										</tr>
+										<tr>
+											<td colspan="4">&nbsp;</td>
+										</tr>
+									</tbody>
+								</table>
+
 								<div class="btn-group btn-block" data-toggle="buttons">
 									<label class="btn btn-default btn-block btn-xs">
 										<input type="radio" name="options" id="option1" autocomplete="off">역압박
@@ -265,7 +287,10 @@
 									</label>
 									<br>
 									<label class="btn btn-default btn-block btn-xs">
-										<input type="radio" name="options" id="option2" autocomplete="off">멀리 차라v>
+										<input type="radio" name="options" id="option2" autocomplete="off">멀리 차라
+									</label>
+								</div>
+							</div>
 						</div>
 						<div class="col-lg-4">
 							<div id="defense_section">
@@ -319,10 +344,10 @@
 		</div>
 		<div id="img-out"></div>
 
-			<!-- jquery -->
-			<script  src="https://code.jquery.com/jquery-3.3.1.min.js"
-			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-			crossorigin="anonymous"></script>
+		<!-- jquery -->
+		<script  src="https://code.jquery.com/jquery-3.3.1.min.js"
+				 integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+				 crossorigin="anonymous"></script>
 
 		<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -334,6 +359,9 @@
 		<script src="plain-draggable.min.js"></script>
 
 		<!-- html2canvas -->
+		<script src="html2canvas.min.js"></script>
+
+		<!-- html2canvas -->
 		<script src="js/canvas2image.js"></script>
 
 		<script src="js/table.js"></script>
@@ -341,84 +369,30 @@
 		<script src="js/screenshot.js"></script>
 		<script src="js/formation.js"></script>
 
-
-				<script>
-		            const margin = 20;
-		            const verticalMargin = 60;
-		            const fieldWidth = $("#field").width() - (margin * 2); //default : 340px
-		            const fieldHeight = $("#field").height() - (verticalMargin * 2); //default : 480px
-		            const widthStep = (fieldWidth / 20);
-		            const heightStep = (fieldHeight / 20);
-		            const uniformWidth = 47.7656;
-		            const uniformheight = 58;
-
-					$(function() {
-
-						$("#btnSave").click(function() {
-							html2canvas($("#main")[0], {
-		                        allowTaint : true,
-		                        useCORS : true,
-		                        //foreignObjectRendering : true,
-		                        //removeContainer : true
-							}).then(
-								function(canvas){
-		                            Canvas2Image.saveAsPNG(canvas);
-		                            /*if (navigator.msSaveBlob) {
-		                                var blob = canvas.msToBlob();
-		                                return navigator.msSaveBlob(blob, '파일명.jpg');
-		                            } else {
-		                                Canvas2Image
-		                                var el = document.getElementById("target");
-		                                el.href = canvas.toDataURL("image/jpeg");
-		                                el.setAttribute('crossorigin');
-		                                el.download = '파일명.jpg';
-		                                console.log(el);
-		                                el.click();
-		                            }*/
-
-
-									/*
-		                            let el = document.getElementById("target");
-		                            el.href = canvas.toDataURL("image/jpeg");
-		                            el.download = '파일명.jpg';
-		                            el.click();*/
-
-								    //Canvas2Image.saveAsPNG(canvas);
-		                            //location.href = canvas.toDataURL('image/png').replace(/^data:image\/png/, 'data:application/octet-stream');
-								});
-						});
-					});
-				</script>
-
 		<script>
 
 			$(function() { //$(document).ready(function(){ });
 
-			    readyAttackOrderButton(); //table.js
+			  readyAttackOrderButton(); //table.js
 				readySliderDesign(); //slider.js
 				readyScreenShot(); //screenshot.js
                 readyFormation(); //formation.js
 
 				$(".container").css("visibility", "visible");
+
+				$('#distribute li > a').on('click', function() {
+						// 버튼에 선택된 항목 텍스트 넣기
+						let htmlString = $(this).text() + ' <span class="caret"></span>';
+						$('#distribute_text').html(htmlString);
+				});
+
+				$('#attackWidthSlider').slider({
+						formatter: function(value) {
+								return 'Current value: ' + value;
+						}
+				});
+
 			});
-
-            $('#cross li > a').on('click', function() {
-                // 버튼에 선택된 항목 텍스트 넣기
-                let htmlString = $(this).text() + ' <span class="caret"></span>';
-                $('#cross_text').html(htmlString);
-            });
-
-
-			function setSelectBoxPosition(){
-			    let ST = ['P', 'AF', 'TM', ''];
-			    let AMF = [];
-			    let CMF = [];
-			    let DMF = [];
-			    let SMF = [];
-			    let CB = [];
-			    let SB = [];
-			    let GK = [];
-            }
 		</script>
 	</body>
 </html>
