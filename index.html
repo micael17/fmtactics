@@ -13,32 +13,15 @@
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.1/css/bootstrap-slider.min.css">
 
-		<!-- jquery -->
-		<script  src="https://code.jquery.com/jquery-3.3.1.min.js"
-		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-		crossorigin="anonymous"></script>
 
-		<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-		<!-- bootstrap-slider -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.1/bootstrap-slider.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.1/css/bootstrap-slider.min.css">
 
-		<!-- draggable -->
-		<script src="plain-draggable.min.js"></script>
-
-		<!-- html2canvas -->
-		<script src="html2canvas.min.js"></script>
-
-		<!-- html2canvas -->
-		<script src="js/canvas2image.js"></script>
 	</head>
 
 	<body>
-
-		<div class="container" style="border: 1px solid black;">
+		<div class="container" style="border: 1px solid black; visibility:hidden;">
 			<div id="main" class="row" style="border: 1px;">
-      	<!-- 포메이션 -->
 				<div class="col-lg-4" style="width: 340px; height: 480px; padding-left: 0; padding-right: 0; margin-right: 20px;">
 					<div id="field" style="background-image : url('img/football_field.jpg'); background-size: 100% 100%; width: 100%; height: 100%; float:left;">
 						<div id="player1">
@@ -110,9 +93,16 @@
 									<input id="attackWidthSlider" data-slider-id='attackWidthSlider' type="range" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
 									<br>
 									<h6>접근 플레이</h6>
-									<button type="button" class="btn btn-default btn-block btn-xs" data-toggle="button" aria-pressed="false" autocomplete="off">
-										공간을 향해 패스하라
-									</button>
+									<div class="btn-group btn-block" data-toggle="buttons">
+										<label class="btn btn-default btn-block btn-xs">
+											<input type="radio" name="options" id="option1" autocomplete="off">공간 패스 O
+										</label>
+										<br>
+										<label class="btn btn-default btn-block btn-xs active">
+											<input type="radio" name="options" id="option2" autocomplete="off" checked>공간 패스 X
+										</label>
+									</div>
+
 									<br>
 									<!-- 경기장 빌드업 방향 -->
 
@@ -275,10 +265,7 @@
 									</label>
 									<br>
 									<label class="btn btn-default btn-block btn-xs">
-										<input type="radio" name="options" id="option2" autocomplete="off">멀리 차라
-									</label>
-								</div>
-							</div>
+										<input type="radio" name="options" id="option2" autocomplete="off">멀리 차라v>
 						</div>
 						<div class="col-lg-4">
 							<div id="defense_section">
@@ -326,56 +313,93 @@
 				</div>
 			</div>
 			<div class="row" style="border: 1px; text-align: center;">
-				<a id="target" style="display: none"></a> <!-- 다운로드를 위한 앵커 -->
+				<a id="target" style="display: none"></a> &lt;!&ndash; 다운로드를 위한 앵커 &ndash;&gt;
 				<input type="button" id="btnSave" value="Save PNG"/>
 			</div>
 		</div>
 		<div id="img-out"></div>
-		<script>
-            const margin = 20;
-            const verticalMargin = 60;
-            const fieldWidth = $("#field").width() - (margin * 2); //default : 340px
-            const fieldHeight = $("#field").height() - (verticalMargin * 2); //default : 480px
-            const widthStep = (fieldWidth / 20);
-            const heightStep = (fieldHeight / 20);
-            const uniformWidth = 47.7656;
-            const uniformheight = 58;
 
-			$(function() {
+			<!-- jquery -->
+			<script  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			crossorigin="anonymous"></script>
 
-				$("#btnSave").click(function() {
-					html2canvas($("#main")[0], {
-                        allowTaint : true,
-                        useCORS : true,
-                        //foreignObjectRendering : true,
-                        //removeContainer : true
-					}).then(
-						function(canvas){
-                            Canvas2Image.saveAsPNG(canvas);
-                            /*if (navigator.msSaveBlob) {
-                                var blob = canvas.msToBlob();
-                                return navigator.msSaveBlob(blob, '파일명.jpg');
-                            } else {
-                                Canvas2Image
-                                var el = document.getElementById("target");
-                                el.href = canvas.toDataURL("image/jpeg");
-                                el.setAttribute('crossorigin');
-                                el.download = '파일명.jpg';
-                                console.log(el);
-                                el.click();
-                            }*/
+		<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+		<!-- bootstrap-slider -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.1/bootstrap-slider.min.js"></script>
+
+		<!-- draggable -->
+		<script src="plain-draggable.min.js"></script>
+
+		<!-- html2canvas -->
+		<script src="js/canvas2image.js"></script>
+
+		<script src="js/table.js"></script>
+		<script src="js/slider.js"></script>
+		<script src="js/screenshot.js"></script>
+		<script src="js/formation.js"></script>
 
 
-							/*
-                            let el = document.getElementById("target");
-                            el.href = canvas.toDataURL("image/jpeg");
-                            el.download = '파일명.jpg';
-                            el.click();*/
+				<script>
+		            const margin = 20;
+		            const verticalMargin = 60;
+		            const fieldWidth = $("#field").width() - (margin * 2); //default : 340px
+		            const fieldHeight = $("#field").height() - (verticalMargin * 2); //default : 480px
+		            const widthStep = (fieldWidth / 20);
+		            const heightStep = (fieldHeight / 20);
+		            const uniformWidth = 47.7656;
+		            const uniformheight = 58;
 
-						    //Canvas2Image.saveAsPNG(canvas);
-                            //location.href = canvas.toDataURL('image/png').replace(/^data:image\/png/, 'data:application/octet-stream');
+					$(function() {
+
+						$("#btnSave").click(function() {
+							html2canvas($("#main")[0], {
+		                        allowTaint : true,
+		                        useCORS : true,
+		                        //foreignObjectRendering : true,
+		                        //removeContainer : true
+							}).then(
+								function(canvas){
+		                            Canvas2Image.saveAsPNG(canvas);
+		                            /*if (navigator.msSaveBlob) {
+		                                var blob = canvas.msToBlob();
+		                                return navigator.msSaveBlob(blob, '파일명.jpg');
+		                            } else {
+		                                Canvas2Image
+		                                var el = document.getElementById("target");
+		                                el.href = canvas.toDataURL("image/jpeg");
+		                                el.setAttribute('crossorigin');
+		                                el.download = '파일명.jpg';
+		                                console.log(el);
+		                                el.click();
+		                            }*/
+
+
+									/*
+		                            let el = document.getElementById("target");
+		                            el.href = canvas.toDataURL("image/jpeg");
+		                            el.download = '파일명.jpg';
+		                            el.click();*/
+
+								    //Canvas2Image.saveAsPNG(canvas);
+		                            //location.href = canvas.toDataURL('image/png').replace(/^data:image\/png/, 'data:application/octet-stream');
+								});
 						});
-				});
+					});
+				</script>
+
+		<script>
+
+			$(function() { //$(document).ready(function(){ });
+
+			    readyAttackOrderButton(); //table.js
+				readySliderDesign(); //slider.js
+				readyScreenShot(); //screenshot.js
+                readyFormation(); //formation.js
+
+				$(".container").css("visibility", "visible");
 			});
 
             $('#cross li > a').on('click', function() {
@@ -384,203 +408,6 @@
                 $('#cross_text').html(htmlString);
             });
 
-						$('#distribute li > a').on('click', function() {
-                // 버튼에 선택된 항목 텍스트 넣기
-                let htmlString = $(this).text() + ' <span class="caret"></span>';
-                $('#distribute_text').html(htmlString);
-            });
-
-            $('#attackWidthSlider').slider({
-                formatter: function(value) {
-                    return 'Current value: ' + value;
-                }
-            });
-
-            $('#defenseWidthSlider').slider({
-                formatter: function(value) {
-                    return 'Current value: ' + value;
-                }
-            });
-
-            $('#passSlider').slider({
-                formatter: function(value) {
-                    return 'Current value: ' + value;
-                }
-            });
-
-            $('#tempoSlider').slider({
-                formatter: function(value) {
-                    return 'Current value: ' + value;
-                }
-            });
-
-            $('#timeSlider').slider({
-                formatter: function(value) {
-                    return 'Current value: ' + value;
-                }
-            });
-
-						$('#pressingIntensity').slider({
-							formatter: function(value) {
-								return 'Current value: ' + value;
-							}
-						});
-
-						const position_options_ST = '<option value="ST" selected>ST</option>'
-																		+ '<option value="AM">AM</option>'
-																		+ '<option value="W">W</option>'
-																		+ '<option value="CM">CM</option>'
-																		+ '<option value="DM">DM</option>'
-																		+ '<option value="WB">WB</option>'
-																		+ '<option value="FB">FB</option>'
-																		+ '<option value="CB">CB</option>'
-																		+ '<option value="GK">GK</option>'
-
-						const position_options_W = '<option value="ST">ST</option>'
-																		+ '<option value="AM">AM</option>'
-																		+ '<option value="W" selected>W</option>'
-																		+ '<option value="CM">CM</option>'
-																		+ '<option value="DM">DM</option>'
-																		+ '<option value="WB">WB</option>'
-																		+ '<option value="FB">FB</option>'
-																		+ '<option value="CB">CB</option>'
-																		+ '<option value="GK">GK</option>'
-
-						const position_options_CM = '<option value="ST">ST</option>'
-																		+ '<option value="AM">AM</option>'
-																		+ '<option value="W">W</option>'
-																		+ '<option value="CM" selected>CM</option>'
-																		+ '<option value="DM">DM</option>'
-																		+ '<option value="WB">WB</option>'
-																		+ '<option value="FB">FB</option>'
-																		+ '<option value="CB">CB</option>'
-																		+ '<option value="GK">GK</option>'
-
-						const position_options_FB = '<option value="ST">ST</option>'
-																		+ '<option value="AM">AM</option>'
-																		+ '<option value="W">W</option>'
-																		+ '<option value="CM">CM</option>'
-																		+ '<option value="DM">DM</option>'
-																		+ '<option value="WB">WB</option>'
-																		+ '<option value="FB" selected>FB</option>'
-																		+ '<option value="CB">CB</option>'
-																		+ '<option value="GK">GK</option>'
-
-						const position_options_CB = '<option value="ST">ST</option>'
-																		+ '<option value="AM">AM</option>'
-																		+ '<option value="W">W</option>'
-																		+ '<option value="CM">CM</option>'
-																		+ '<option value="DM">DM</option>'
-																		+ '<option value="WB">WB</option>'
-																		+ '<option value="FB">FB</option>'
-																		+ '<option value="CB" selected>CB</option>'
-																		+ '<option value="GK">GK</option>'
-
-						const position_options_GK = '<option value="ST">ST</option>'
-																		+ '<option value="AM">AM</option>'
-																		+ '<option value="W">W</option>'
-																		+ '<option value="CM">CM</option>'
-																		+ '<option value="DM">DM</option>'
-																		+ '<option value="WB">WB</option>'
-																		+ '<option value="FB">FB</option>'
-																		+ '<option value="CB">CB</option>'
-																		+ '<option value="GK" selected>GK</option>'
-
-
-			$("#position0").html(position_options_ST)
-			$("#position1").html(position_options_ST)
-			$("#position2").html(position_options_W)
-			$("#position3").html(position_options_CM)
-			$("#position4").html(position_options_CM)
-			$("#position5").html(position_options_W)
-			$("#position6").html(position_options_FB)
-			$("#position7").html(position_options_CB)
-			$("#position8").html(position_options_CB)
-			$("#position9").html(position_options_FB)
-			$("#position10").html(position_options_GK)
-
-
-			window.addEventListener('load', function() {
-
-			  const player_cnt = 11;
-			  let players = new Array();
-
-			  for(let i = 1; i <= player_cnt; i++){
-				players.push(
-					new PlainDraggable(document.getElementById('player'+i), {
-						handle: document.querySelector('#player'+i+' #uniform_img'),
-						snap: {step: 5}
-					})
-				);
-			  }
-
-			  //draggable.containment = {left: 50, top: 0, width: '100%', height: '100%'};
-
-			  //기본 4-4-2 전형
-			  let formation442 = [
-				{//1
-					x : getHorizonValue(5),
-					y : getVerticalValue(3)
-				},
-				{//2
-					x : getHorizonValue(11),
-					y : getVerticalValue(3)
-				},
-				{//3
-					x : getHorizonValue(0),
-					y : getVerticalValue(11)
-				},
-				{//4
-					x : getHorizonValue(5),
-					y : getVerticalValue(11)
-				},
-				{//5
-					x : getHorizonValue(11),
-					y : getVerticalValue(11)
-				},
-				{//6
-					x : getHorizonValue(16),
-					y : getVerticalValue(11)
-				},
-				{//7
-					x : getHorizonValue(0),
-					y : getVerticalValue(18)
-				},
-				{//8
-					x : getHorizonValue(5),
-					y : getVerticalValue(18)
-				},
-				{//9
-					x : getHorizonValue(11),
-					y : getVerticalValue(18)
-				},
-				{//10
-					x : getHorizonValue(16),
-					y : getVerticalValue(18)
-				},
-				{//11
-					x : getHorizonValue(8),
-					y : getVerticalValue(22)
-				}
-			  ]
-
-			  for(let i in players){
-                players[i].left = 0; //기본 x좌표를 경기장 맨 왼쪽으로
-                players[i].top = 0;
-				players[i].left += formation442[i].x;
-				players[i].top += formation442[i].y;
-				players[i].position();
-			  }
-
-			});
-
-			function getHorizonValue(x){
-               	return (widthStep * x) + margin + 12;
-			}
-
-			function getVerticalValue(y){
-                return (heightStep * y) + verticalMargin - uniformheight;
-			}
 
 			function setSelectBoxPosition(){
 			    let ST = ['P', 'AF', 'TM', ''];
