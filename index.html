@@ -3,27 +3,27 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		
+
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
 		<!-- 부가적인 테마 -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-		
+
 		<link rel="stylesheet" href="tactics.css">
-		
+
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.1/css/bootstrap-slider.min.css">
 
 		<!-- jquery -->
-		<script  src="https://code.jquery.com/jquery-3.3.1.min.js"  
-		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="  
+		<script  src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 		crossorigin="anonymous"></script>
-  
+
 		<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-		
+
 		<!-- bootstrap-slider -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.1/bootstrap-slider.min.js"></script>
-		
+
 		<!-- draggable -->
 		<script src="plain-draggable.min.js"></script>
 
@@ -38,74 +38,63 @@
 
 		<div class="container" style="border: 1px solid black;">
 			<div id="main" class="row" style="border: 1px;">
-                <!-- 포메이션 -->
+      	<!-- 포메이션 -->
 				<div class="col-lg-4" style="width: 340px; height: 480px; padding-left: 0; padding-right: 0; margin-right: 20px;">
 					<div id="field" style="background-image : url('img/football_field.jpg'); background-size: 100% 100%; width: 100%; height: 100%; float:left;">
 						<div id="player1">
 							<img id="uniform_img" src="img/uniform3.png"/>
 							<br/>
-							<select id="sel">
-							</select>
+							<input type='text' placeholder="입력" size='5' style="font-size: 11px;margin-left: -8px;"/>
 						</div>
 						<div id="player2">
 							<img id="uniform_img" src="img/uniform3.png"/>
 							<br/>
-							<select id="sel">
-							</select>
+							<input type='text' placeholder="입력" size='5' style="font-size: 11px;margin-left: -8px;"/>
 						</div>
 						<div id="player3">
 							<img id="uniform_img" src="img/uniform3.png"/>
 							<br/>
-							<select id="sel">
-							</select>
+							<input type='text' placeholder="입력" size='5' style="font-size: 11px;margin-left: -8px;"/>
 						</div>
 						<div id="player4">
 							<img id="uniform_img" src="img/uniform3.png"/>
 							<br/>
-							<select id="sel">
-							</select>
+							<input type='text' placeholder="입력" size='5' style="font-size: 11px;margin-left: -8px;"/>
 						</div>
 						<div id="player5">
 							<img id="uniform_img" src="img/uniform3.png"/>
 							<br/>
-							<select id="sel">
-							</select>
+							<input type='text' placeholder="입력" size='5' style="font-size: 11px;margin-left: -8px;"/>
 						</div>
 						<div id="player6">
 							<img id="uniform_img" src="img/uniform3.png"/>
 							<br/>
-							<select id="sel">
-							</select>
+							<input type='text' placeholder="입력" size='5' style="font-size: 11px;margin-left: -8px;"/>
 						</div>
 						<div id="player7">
-							<img id="uniform_img" src="img/uniform3.png"/>						
+							<img id="uniform_img" src="img/uniform3.png"/>
 							<br/>
-							<select id="sel">
-							</select>
+							<input type='text' placeholder="입력" size='5' style="font-size: 11px;margin-left: -8px;"/>
 						</div>
 						<div id="player8">
-							<img id="uniform_img" src="img/uniform3.png"/>						
+							<img id="uniform_img" src="img/uniform3.png"/>
 							<br/>
-							<select id="sel">
-							</select>
+							<input type='text' placeholder="입력" size='5' style="font-size: 11px;margin-left: -8px;"/>
 						</div>
 						<div id="player9">
-							<img id="uniform_img" src="img/uniform3.png"/>						
+							<img id="uniform_img" src="img/uniform3.png"/>
 							<br/>
-							<select id="sel">
-							</select>
+							<input type='text' placeholder="입력" size='5' style="font-size: 11px;margin-left: -8px;"/>
 						</div>
 						<div id="player10">
-							<img id="uniform_img" src="img/uniform3.png"/>						
+							<img id="uniform_img" src="img/uniform3.png"/>
 							<br/>
-							<select id="sel">
-							</select>
+							<input type='text' placeholder="입력" size='5' style="font-size: 11px; margin-left: -8px;"/>
 						</div>
 						<div id="player11">
-							<img id="uniform_img" src="img/uniform3.png"/>						
+							<img id="uniform_img" src="img/uniform3.png"/>
 							<br/>
-							<select id="sel">
-							</select>
+							<input type='text' placeholder="입력" size='5' style="font-size: 11px;margin-left: -8px;"/>
 						</div>
 					</div>
 				</div>
@@ -115,7 +104,7 @@
 					<div class="row">
 						<div class="col-lg-4">
 							<div id="attack_section">
-								<h5>볼 점유 시</h5>
+								<h5>1. 공 소유 시</h5>
 								<div>
 									<h6>공격 폭</h6>
 									<input id="attackWidthSlider" data-slider-id='attackWidthSlider' type="range" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
@@ -179,7 +168,7 @@
 										</label>
 										<br>
 										<label class="btn btn-default btn-block btn-xs active">
-											<input type="radio" name="options" id="option2" autocomplete="off" checked>보통
+											<input type="radio" name="options" id="option2" autocomplete="off">일반
 										</label>
 										<br>
 										<label class="btn btn-default btn-block btn-xs">
@@ -195,7 +184,7 @@
 										</label>
 										<br>
 										<label class="btn btn-default btn-block btn-xs active">
-											<input type="radio" name="options" id="option2" autocomplete="off" checked>보통
+											<input type="radio" name="options" id="option2" autocomplete="off">일반
 										</label>
 										<br>
 										<label class="btn btn-default btn-block btn-xs">
@@ -203,30 +192,134 @@
 										</label>
 									</div>
 								</div>
-
-								<!--<div class="progress">
-                                  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                    <span class="sr-only">80% Complete (danger)</span>
-                                  </div>
-                                </div>-->
-
 							</div>
 						</div>
 						<div class="col-lg-4">
 							<div id="transition_section">
-								<h5>전환 시</h5>
+								<h5>2. 전환 시</h5>
+								<div class="btn-group btn-block" data-toggle="buttons">
+									<label class="btn btn-default btn-block btn-xs">
+										<input type="radio" name="options" id="option1" autocomplete="off">역압박
+									</label>
+									<br>
+									<label class="btn btn-default btn-block btn-xs active">
+										<input type="radio" name="options" id="option2" autocomplete="off">일반
+									</label>
+									<br>
+									<label class="btn btn-default btn-block btn-xs">
+										<input type="radio" name="options" id="option3" autocomplete="off">재정비
+									</label>
+								</div>
+
+								<h5>공을 가지고 있을 때</h5>
+								<div class="btn-group btn-block" data-toggle="buttons">
+									<label class="btn btn-default btn-block btn-xs">
+										<input type="radio" name="options" id="option1" autocomplete="off">역습
+									</label>
+									<br>
+									<label class="btn btn-default btn-block btn-xs active">
+										<input type="radio" name="options" id="option2" autocomplete="off">일반
+									</label>
+									<br>
+									<label class="btn btn-default btn-block btn-xs">
+										<input type="radio" name="options" id="option3" autocomplete="off">진영 유지
+									</label>
+								</div>
+
+								<h5>골키퍼가 공을 소유</h5>
+								<div class="btn-group btn-block" data-toggle="buttons">
+									<label class="btn btn-default btn-block btn-xs">
+										<input type="radio" name="options" id="option1" autocomplete="off">빠르게 배급하라
+									</label>
+									<br>
+									<label class="btn btn-default btn-block btn-xs active">
+										<input type="radio" name="options" id="option2" autocomplete="off">일반
+									</label>
+									<br>
+									<label class="btn btn-default btn-block btn-xs">
+										<input type="radio" name="options" id="option3" autocomplete="off">천천히 페이스 조절하라
+									</label>
+								</div>
+
+								<div class="dropdown" style="margin-top: 20px;">
+									<button class="btn btn-default btn-block btn-xs dropdown-toggle" id="distribute_text" value="title" type="button" data-toggle="dropdown" aria-expanded="true">
+										지역/선수로 분배
+										<span class="caret"></span>
+									</button>
+									<ul id="distribute" class="dropdown-menu" role="menu" aria-labelledby="searchType">
+										<li role="presentation">
+											<a role="menuitem" tabindex="-1" href="#" value="a">지역/선수로 분배</a>
+										</li>
+										<li role="presentation">
+											<a role="menuitem" tabindex="-1" href="#" value="b">포지션으로 분배</a>
+										</li>
+									</ul>
+								</div>
+
+								<h5>분배 방식</h5>
+								<div class="btn-group btn-block" data-toggle="buttons">
+									<label class="btn btn-default btn-block btn-xs active">
+										<input type="radio" name="options" id="option1" autocomplete="off">일반
+									</label>
+									<br>
+									<label class="btn btn-default btn-block btn-xs">
+										<input type="radio" name="options" id="option1" autocomplete="off">굴려서 배급
+									</label>
+									<br>
+									<label class="btn btn-default btn-block btn-xs">
+										<input type="radio" name="options" id="option2" autocomplete="off">멀리 던져라
+									</label>
+									<br>
+									<label class="btn btn-default btn-block btn-xs">
+										<input type="radio" name="options" id="option2" autocomplete="off">발로 짧은 패스
+									</label>
+									<br>
+									<label class="btn btn-default btn-block btn-xs">
+										<input type="radio" name="options" id="option2" autocomplete="off">멀리 차라
+									</label>
+								</div>
 							</div>
 						</div>
 						<div class="col-lg-4">
 							<div id="defense_section">
-								<h5>볼이 없을 시</h5>
+								<h5>3. 소유권 없을 때</h5>
 								<div>
-									<label for="defenseWidth">수비 넓이</label>
-									<br>
-									<input id="defenseWidth" data-slider-id='defenseWidth' type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="1"/>
-								</div>
+									<h6>수비 형태</h6>
+									<button type="button" class="btn btn-default btn-block btn-xs" data-toggle="button" aria-pressed="false" autocomplete="off">
+										오프사이드 트랩을 이용하라
+									</button>
 
-								<input id="pressingIntensity" data-slider-id='pressingIntensity' type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+
+									<h6>수비 폭</h6>
+									<input id="defenseWidthSlider" data-slider-id='defenseWidthSlider' type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="1"/>
+
+									<h6>밀착 수비</h6>
+									<button type="button" class="btn btn-default btn-block btn-xs" data-toggle="button" aria-pressed="false" autocomplete="off">
+										엄격하게 마크하라
+									</button>
+
+									<h6>압박 강도</h6>
+									<input id="pressingIntensity" data-slider-id='pressingIntensity' type="text" data-slider-min="0" data-slider-max="4" data-slider-step="1" data-slider-value="2"/>
+									<button type="button" class="btn btn-default btn-block btn-xs" data-toggle="button" aria-pressed="false" autocomplete="off">
+										상대 골키퍼 긴 패스 유도
+									</button>
+
+									<h6>태클</h6>
+									<div class="btn-group btn-block" data-toggle="buttons">
+										<label class="btn btn-default btn-block btn-xs">
+											<input type="radio" name="options" id="option1" autocomplete="off">서서 수비하라
+										</label>
+										<br>
+										<label class="btn btn-default btn-block btn-xs active">
+											<input type="radio" name="options" id="option2" autocomplete="off">일반
+										</label>
+										<br>
+										<label class="btn btn-default btn-block btn-xs">
+											<input type="radio" name="options" id="option3" autocomplete="off">태클을 아끼지 말아라
+										</label>
+									</div>
+
+								</div>
 							</div>
 						</div>
 					</div>
@@ -281,7 +374,7 @@
 
 						    //Canvas2Image.saveAsPNG(canvas);
                             //location.href = canvas.toDataURL('image/png').replace(/^data:image\/png/, 'data:application/octet-stream');
-						});					
+						});
 				});
 			});
 
@@ -289,6 +382,12 @@
                 // 버튼에 선택된 항목 텍스트 넣기
                 let htmlString = $(this).text() + ' <span class="caret"></span>';
                 $('#cross_text').html(htmlString);
+            });
+
+						$('#distribute li > a').on('click', function() {
+                // 버튼에 선택된 항목 텍스트 넣기
+                let htmlString = $(this).text() + ' <span class="caret"></span>';
+                $('#distribute_text').html(htmlString);
             });
 
             $('#attackWidthSlider').slider({
@@ -320,23 +419,97 @@
                     return 'Current value: ' + value;
                 }
             });
-			
-			$('#pressingIntensity').slider({
-				formatter: function(value) {
-					return 'Current value: ' + value;
-				}
-			});
-			
-			window.addEventListener('load', function() {			
-			
+
+						$('#pressingIntensity').slider({
+							formatter: function(value) {
+								return 'Current value: ' + value;
+							}
+						});
+
+						const position_options_ST = '<option value="ST" selected>ST</option>'
+																		+ '<option value="AM">AM</option>'
+																		+ '<option value="W">W</option>'
+																		+ '<option value="CM">CM</option>'
+																		+ '<option value="DM">DM</option>'
+																		+ '<option value="WB">WB</option>'
+																		+ '<option value="FB">FB</option>'
+																		+ '<option value="CB">CB</option>'
+																		+ '<option value="GK">GK</option>'
+
+						const position_options_W = '<option value="ST">ST</option>'
+																		+ '<option value="AM">AM</option>'
+																		+ '<option value="W" selected>W</option>'
+																		+ '<option value="CM">CM</option>'
+																		+ '<option value="DM">DM</option>'
+																		+ '<option value="WB">WB</option>'
+																		+ '<option value="FB">FB</option>'
+																		+ '<option value="CB">CB</option>'
+																		+ '<option value="GK">GK</option>'
+
+						const position_options_CM = '<option value="ST">ST</option>'
+																		+ '<option value="AM">AM</option>'
+																		+ '<option value="W">W</option>'
+																		+ '<option value="CM" selected>CM</option>'
+																		+ '<option value="DM">DM</option>'
+																		+ '<option value="WB">WB</option>'
+																		+ '<option value="FB">FB</option>'
+																		+ '<option value="CB">CB</option>'
+																		+ '<option value="GK">GK</option>'
+
+						const position_options_FB = '<option value="ST">ST</option>'
+																		+ '<option value="AM">AM</option>'
+																		+ '<option value="W">W</option>'
+																		+ '<option value="CM">CM</option>'
+																		+ '<option value="DM">DM</option>'
+																		+ '<option value="WB">WB</option>'
+																		+ '<option value="FB" selected>FB</option>'
+																		+ '<option value="CB">CB</option>'
+																		+ '<option value="GK">GK</option>'
+
+						const position_options_CB = '<option value="ST">ST</option>'
+																		+ '<option value="AM">AM</option>'
+																		+ '<option value="W">W</option>'
+																		+ '<option value="CM">CM</option>'
+																		+ '<option value="DM">DM</option>'
+																		+ '<option value="WB">WB</option>'
+																		+ '<option value="FB">FB</option>'
+																		+ '<option value="CB" selected>CB</option>'
+																		+ '<option value="GK">GK</option>'
+
+						const position_options_GK = '<option value="ST">ST</option>'
+																		+ '<option value="AM">AM</option>'
+																		+ '<option value="W">W</option>'
+																		+ '<option value="CM">CM</option>'
+																		+ '<option value="DM">DM</option>'
+																		+ '<option value="WB">WB</option>'
+																		+ '<option value="FB">FB</option>'
+																		+ '<option value="CB">CB</option>'
+																		+ '<option value="GK" selected>GK</option>'
+
+
+			$("#position0").html(position_options_ST)
+			$("#position1").html(position_options_ST)
+			$("#position2").html(position_options_W)
+			$("#position3").html(position_options_CM)
+			$("#position4").html(position_options_CM)
+			$("#position5").html(position_options_W)
+			$("#position6").html(position_options_FB)
+			$("#position7").html(position_options_CB)
+			$("#position8").html(position_options_CB)
+			$("#position9").html(position_options_FB)
+			$("#position10").html(position_options_GK)
+
+
+			window.addEventListener('load', function() {
+
 			  const player_cnt = 11;
 			  let players = new Array();
-			  
+
 			  for(let i = 1; i <= player_cnt; i++){
 				players.push(
 					new PlainDraggable(document.getElementById('player'+i), {
 						handle: document.querySelector('#player'+i+' #uniform_img'),
-						snap: {step: 10}
+						snap: {step: 5}
 					})
 				);
 			  }
