@@ -97,3 +97,45 @@ function readyAttackOrderButton(){
         }
     });
 }
+
+/**
+ *  상대팀 진영 세팅
+ */
+function readyEnemySideButton(){
+
+    $("#lessShot").click(function(){
+        if( $(this).hasClass("bg-success") ){
+            $(this).attr("class", "");
+            $("#moreShot").attr("class", "");
+            $("#earlyCross1").attr("class", "");
+            $("#earlyCross2").attr("class", "");
+        }else{
+            $(this).attr("class", "bg-success");
+            $("#moreShot").attr("class", "bg-danger");
+            $("#earlyCross1").attr("class", "bg-danger");
+            $("#earlyCross2").attr("class", "bg-danger");
+        }
+    });
+
+    $("#moreShot").click(function(){
+        if( $(this).hasClass("bg-success") ){
+            $(this).attr("class", "");
+            $("#lessShot").attr("class", "");
+        }else{
+            $(this).attr("class", "bg-success");
+            $("#lessShot").attr("class", "bg-danger");
+        }
+    });
+
+    $("#earlyCross1, #earlyCross2").click(function(){
+        if( $(this).hasClass("bg-success") ){
+            $("#earlyCross1").attr("class", "");
+            $("#earlyCross2").attr("class", "");
+            $("#lessShot").attr("class", "");
+        }else{
+            $("#earlyCross1").attr("class", "bg-success");
+            $("#earlyCross2").attr("class", "bg-success");
+            $("#lessShot").attr("class", "bg-danger");
+        }
+    });
+}

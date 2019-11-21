@@ -1,0 +1,48 @@
+.cell {
+  margin-top : 1px;
+  margin-bottom: 5px;
+}
+
+/* background-image opacity */
+#fieldImg {
+   position: relative; /* #wrapper에 투명도를 주면 컨텐츠도 같이 투명해지기 때문에.. */
+}
+#fieldImg:after {
+    content : "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image : url('../img/football_field.jpg');
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    opacity : 0.3;
+    z-index: -1;
+}
+
+#fieldTable {
+  width: 100%;
+  height: 230px;
+  border: 1px solid;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 10px;
+  font-weight: normal;
+}
+
+.slider.slider-horizontal {
+  width: 100% !important;
+}
+
+label {
+  width: 100%;
+  text-align: center;
+}
+
+h5{
+  font-weight: bold;
+}
+h6{
+  color: #666666
+}

@@ -30,7 +30,7 @@ function setPlayersToFormation(){
         players.push(
             new PlainDraggable(document.getElementById('player'+i), {
                 handle: document.querySelector('#player'+i+' #uniform_img'),
-                snap: {step: 10}
+                snap: {step: 3}
             })
         );
     }
