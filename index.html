@@ -506,11 +506,27 @@
 		<script src="js/screenshot.js"></script>
 		<script src="js/formation.js"></script>
 
-		<script>
 
+		<script>
 			$(function() { //$(document).ready(function(){ });
 
-			  readyAttackOrderButton(); //table.js
+				<!-- 우클릭 방지 -->
+				$(document).bind("contextmenu", function(e) {
+					return false;
+				});
+
+				$(document)[0].oncontextmenu = function() { return false; }
+				$(document).mousedown(function(e) {
+					if( e.button == 2 ) {
+						alert('내용을 복사할 수 없습니다.');
+						return false;
+					} else {
+						return true;
+					}
+				});
+				<!-- 우클릭 방지 끝 -->
+
+			  	readyAttackOrderButton(); //table.js
 				readyEnemySideButton();
 				readySliderDesign(); //slider.js
 				readyScreenShot(); //screenshot.js
