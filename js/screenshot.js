@@ -1,6 +1,7 @@
 function readyScreenShot(){
     $("#btnSave").click(function() {
-        alert('screenshot');
+        alert('준비중..');
+        return;
         html2canvas($("#main")[0], {
             allowTaint : true,
             useCORS : true,
