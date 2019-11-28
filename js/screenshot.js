@@ -5,12 +5,11 @@ function readyScreenShot(){
             useCORS : true,
             foreignObjectRendering : true,
 
-            proxy: '/img/'
             //removeContainer : true
         }).then(
             function(canvas){
-                canvas.toDataURL("image/png")
-                //Canvas2Image.saveAsPNG(canvas);
+                //canvas.toDataURL("image/png")
+                Canvas2Image.saveAsPNG(canvas);
                 //location.href = canvas.toDataURL('image/png').replace(/^data:image\/png/, 'data:application/octet-stream');
                 /*var el = document.getElementById("capture_target");
                 let img = canvas.toDataURL("image/png");
