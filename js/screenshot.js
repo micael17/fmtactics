@@ -4,8 +4,6 @@ function readyScreenShot(){
             allowTaint : true,
             useCORS : true,
             foreignObjectRendering : true,
-            width: 1168,
-            height: 666.5
         }).then(
             function(canvas){
                 let today = new Date();
