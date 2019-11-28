@@ -1,15 +1,23 @@
 function readyScreenShot(){
     $("#btnSave").click(function() {
-        alert('준비중..');
-        return;
         html2canvas($("#main")[0], {
             allowTaint : true,
             useCORS : true,
-            //foreignObjectRendering : true,
+            foreignObjectRendering : true,
+
+            proxy: '/img/'
             //removeContainer : true
         }).then(
             function(canvas){
-                Canvas2Image.saveAsPNG(canvas);
+                canvas.toDataURL("image/png")
+                //Canvas2Image.saveAsPNG(canvas);
+                //location.href = canvas.toDataURL('image/png').replace(/^data:image\/png/, 'data:application/octet-stream');
+                /*var el = document.getElementById("capture_target");
+                let img = canvas.toDataURL("image/png");
+                img.saveAsPNG()
+                el.download = '파일명.jpg';
+                el.click();*/
+
                 /*if (navigator.msSaveBlob) {
                     var blob = canvas.msToBlob();
                     return navigator.msSaveBlob(blob, '파일명.jpg');
