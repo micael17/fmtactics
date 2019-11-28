@@ -8,8 +8,17 @@ function readyScreenShot(){
             //removeContainer : true
         }).then(
             function(canvas){
-                //canvas.toDataURL("image/png")
-                Canvas2Image.saveAsPNG(canvas);
+                if (navigator.msSaveBlob) {
+                    let blob = canvas.msToBlob();
+                    return navigator.msSaveBlob(blob, 'test.png');
+                } else {
+                    let el = document.getElementById("capture_target");
+                    el.href = canvas.toDataURL("image/jpeg");
+                    el.setAttribute('crossorigin', 'anonymous');
+                    el.download = 'test.png';
+                    console.log(el);
+                    el.click();
+                }
                 //location.href = canvas.toDataURL('image/png').replace(/^data:image\/png/, 'data:application/octet-stream');
                 /*var el = document.getElementById("capture_target");
                 let img = canvas.toDataURL("image/png");
