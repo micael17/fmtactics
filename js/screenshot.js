@@ -6,6 +6,8 @@ function readyScreenShot(){
             foreignObjectRendering : true,
         }).then(
             function(canvas){
+                $("html, body").scrollTop(0);
+
                 let today = new Date();
                 let year = today.getFullYear()
                 let month = today.getMonth() + 1;
