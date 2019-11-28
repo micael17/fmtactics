@@ -4,50 +4,24 @@ function readyScreenShot(){
             allowTaint : true,
             useCORS : true,
             foreignObjectRendering : true,
-
-            //removeContainer : true
         }).then(
             function(canvas){
+                let today = new Date();
+                let year = today.getFullYear()
+                let month = today.getMonth() + 1;
+                let date = today.getDate();
+                let filename = year + '_' + month + '_' + date + '_myfmtactics.png';
+
                 if (navigator.msSaveBlob) {
                     let blob = canvas.msToBlob();
-                    return navigator.msSaveBlob(blob, 'test.png');
+                    return navigator.msSaveBlob(blob, filename);
                 } else {
                     let el = document.getElementById("capture_target");
                     el.href = canvas.toDataURL("image/jpeg");
                     el.setAttribute('crossorigin', 'anonymous');
-                    el.download = 'test.png';
-                    console.log(el);
+                    el.download = filename;
                     el.click();
                 }
-                //location.href = canvas.toDataURL('image/png').replace(/^data:image\/png/, 'data:application/octet-stream');
-                /*var el = document.getElementById("capture_target");
-                let img = canvas.toDataURL("image/png");
-                img.saveAsPNG()
-                el.download = '파일명.jpg';
-                el.click();*/
-
-                /*if (navigator.msSaveBlob) {
-                    var blob = canvas.msToBlob();
-                    return navigator.msSaveBlob(blob, '파일명.jpg');
-                } else {
-                    Canvas2Image
-                    var el = document.getElementById("target");
-                    el.href = canvas.toDataURL("image/jpeg");
-                    el.setAttribute('crossorigin');
-                    el.download = '파일명.jpg';
-                    console.log(el);
-                    el.click();
-                }*/
-
-
-                /*
-                let el = document.getElementById("target");
-                el.href = canvas.toDataURL("image/jpeg");
-                el.download = '파일명.jpg';
-                el.click();*/
-
-                //Canvas2Image.saveAsPNG(canvas);
-                //location.href = canvas.toDataURL('image/png').replace(/^data:image\/png/, 'data:application/octet-stream');
             });
     });
 }
