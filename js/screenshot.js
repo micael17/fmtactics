@@ -4,11 +4,10 @@ function readyScreenShot(){
             allowTaint : true,
             useCORS : true,
             foreignObjectRendering : true,
+            scrollX: 0,
+            scrollY: 0
         }).then(
-            async function(canvas){
-
-                await $("html, body").scrollTop(0)
-                
+            function(canvas){
                 let today = new Date();
                 let year = today.getFullYear()
                 let month = today.getMonth() + 1;
