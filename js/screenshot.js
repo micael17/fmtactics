@@ -5,27 +5,26 @@ function readyScreenShot(){
             useCORS : true,
             foreignObjectRendering : true,
         }).then(
-            function(canvas){
-                $("html, body").scrollTop(0).then(
-                    function(){
-                        let today = new Date();
-                        let year = today.getFullYear()
-                        let month = today.getMonth() + 1;
-                        let date = today.getDate();
-                        let filename = year + '_' + month + '_' + date + '_myfmtactics.png';
+            async function(canvas){
 
-                        if (navigator.msSaveBlob) {
-                            let blob = canvas.msToBlob();
-                            return navigator.msSaveBlob(blob, filename);
-                        } else {
-                            let el = document.getElementById("capture_target");
-                            el.href = canvas.toDataURL("image/jpeg");
-                            el.setAttribute('crossorigin', 'anonymous');
-                            el.download = filename;
-                            el.click();
-                        }
-                    }
-                )
+                await $("html, body").scrollTop(0)
+                
+                let today = new Date();
+                let year = today.getFullYear()
+                let month = today.getMonth() + 1;
+                let date = today.getDate();
+                let filename = year + '_' + month + '_' + date + '_myfmtactics.png';
+
+                if (navigator.msSaveBlob) {
+                    let blob = canvas.msToBlob();
+                    return navigator.msSaveBlob(blob, filename);
+                } else {
+                    let el = document.getElementById("capture_target");
+                    el.href = canvas.toDataURL("image/jpeg");
+                    el.setAttribute('crossorigin', 'anonymous');
+                    el.download = filename;
+                    el.click();
+                }
             });
     });
 }
